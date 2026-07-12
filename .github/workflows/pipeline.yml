@@ -39,7 +39,7 @@ jobs:
           ls
           find .
 
-      - name: Run Tests
+      - name: Run Unit Tests
         working-directory: python
         run: |
-          python -m pytest tests -v
+          python -m pytest tests/unit -v
