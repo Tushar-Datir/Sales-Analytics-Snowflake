@@ -2,16 +2,16 @@ from app.config import Config
 from app.validator import DataValidator
 
 
-def main():
+def test_validator():
 
     csv_file = Config.RAW_DATA_DIR / "train.csv"
 
     validator = DataValidator(csv_file)
 
-    validator.load()
+    df = validator.load()
 
     validator.summary()
 
-
-if __name__ == "__main__":
-    main()
+    assert df is not None
+    assert len(df) > 0
+    assert "SALES" in df.columns
